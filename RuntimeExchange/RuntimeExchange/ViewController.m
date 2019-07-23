@@ -42,6 +42,7 @@
     
     NSLog(@"length == %lu",(unsigned long)str.length);
     
+    // 根据字符串长度对不会空label的后一位的label赋值为空
     if (textField.text.length <= 3) {
         UILabel *label = [self.view viewWithTag:10001+textField.text.length];
         label.text = @"";
@@ -57,20 +58,40 @@
 - (void)valueChanged:(UITextField *)textField {
     
     if (textField.text.length <= 4 && textField.text.length != 0) {
-        
+        // 只给最后一个不为空的label赋值
         NSMutableString *str = [NSMutableString stringWithString:textField.text];
         UILabel *label = [self.view viewWithTag:10000+textField.text.length];
         label.text = [str substringWithRange:NSMakeRange(textField.text.length-1, 1)];
         
-    } else if (textField.text.length == 0) {
+    } else if (textField.text.length == 0) { // 字数等于0时清空第一个label
         self.label1.text = @"";
-    } else {
+    } else { // 字数大于4时进行提示
         
-        NSLog(@"个数超过了4个");
+        [self showAlertLabel];
         textField.text = [textField.text substringWithRange:NSMakeRange(0, 4)];
         return;
     }
     
+}
+
+- (void)showAlertLabel { // 简易的提示label
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
+    label.backgroundColor = UIColor.blackColor;
+    label.layer.masksToBounds = YES;
+    label.layer.cornerRadius = 25;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2.0, [UIScreen mainScreen].bounds.size.height/2.0);
+    label.text = @"最多只能输入4个数字";
+    label.textColor = UIColor.whiteColor;
+    [self.view addSubview:label];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //回到主线程
+            [label removeFromSuperview];
+        });
+    });
 }
 
 
