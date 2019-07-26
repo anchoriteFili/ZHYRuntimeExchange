@@ -29,6 +29,7 @@ void exchangeMethod(Class class, SEL method, SEL newMethod) {
 }
 
 - (void)zh_viewWillAppear:(BOOL)animated {
+    // 此处已经与系统方法调换，其实调用的是系统方法
     [self zh_viewWillAppear:animated];
     
     NSString *className = [NSString stringWithUTF8String:object_getClassName(self)];
@@ -37,6 +38,7 @@ void exchangeMethod(Class class, SEL method, SEL newMethod) {
 }
 
 - (void)zh_viewWillDisappear:(BOOL)animated {
+    // 此处已经与系统方法调换，其实调用的是系统方法
     [self zh_viewWillDisappear:animated];
     
     NSString *className = [NSString stringWithUTF8String:object_getClassName(self)];

@@ -22,6 +22,7 @@
 }
 
 - (void)zh_deleteBackward {
+    // 此处已经与系统方法调换，其实调用的是系统方法
     [self zh_deleteBackward];
     // 调取代理方法
     if ([self.delegate respondsToSelector:@selector(zh_textFieldDidDeleteBackward:)]) {

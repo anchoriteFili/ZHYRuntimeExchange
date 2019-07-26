@@ -191,4 +191,58 @@ void exchangeMethod(Class class, SEL method, SEL newMethod) {
 
 @end
 ```
+#### 示例3：替换`URLWithString`方法检测链接是否包含中文
 
+```objc
+#import "NSURL+ChineseJudge.h"
+#import <objc/runtime.h>
+#import "NSString+ZHString.h"
+
+@implementation NSURL (ChineseJudge)
+
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{ // 进行方法替换。
+        
+        Method method = class_getClassMethod(self, @selector(URLWithString:));
+        Method newMethod = class_getClassMethod(self, @selector(zh_URLWithString:));
+        method_exchangeImplementations(method, newMethod);
+    });
+    
+}
+
++ (instancetype)zh_URLWithString:(NSString *)URLString {
+    
+    NSURL *url = [NSURL zh_URLWithString:URLString];
+    
+    // 判断是否包含中文
+    if ([URLString zhIsIncludeChinese]) {
+        
+        // 包含中文，进行转码
+        NSCharacterSet *encodeUrlSet = [NSCharacterSet URLQueryAllowedCharacterSet];
+        NSString *encodeUrl = [URLString stringByAddingPercentEncodingWithAllowedCharacters:encodeUrlSet];
+        url = [NSURL zh_URLWithString:encodeUrl];
+    }
+    
+    NSLog(@"url ****** %@",url);
+    
+    return url;
+}
+```
+
+```objc
+@implementation NSString (ZHString)
+
+// 字符串是否包含中文判断
+- (BOOL)zhIsIncludeChinese {
+    for(int i=0; i< [self length];i++) {
+        int a =[self characterAtIndex:i];
+        if( a >0x4e00&& a <0x9fff) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+@end
+```

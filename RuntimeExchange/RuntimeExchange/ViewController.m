@@ -28,6 +28,10 @@
 
     self.textField.delegate = self;
     [self.textField addTarget:self  action:@selector(valueChanged:)  forControlEvents:UIControlEventAllEditingEvents];
+    
+    
+     // 测试url中文判断。
+    [NSURL URLWithString:@"http://www.baidu.com/哈哈哈"];
 }
 
 /**

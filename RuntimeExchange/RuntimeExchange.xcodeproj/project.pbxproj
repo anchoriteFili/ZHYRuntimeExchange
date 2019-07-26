@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F92C308522EAE29B0065B1F8 /* NSURL+ChineseJudge.m in Sources */ = {isa = PBXBuildFile; fileRef = F92C308422EAE29B0065B1F8 /* NSURL+ChineseJudge.m */; };
+		F92C308822EAE9840065B1F8 /* NSString+ZHString.m in Sources */ = {isa = PBXBuildFile; fileRef = F92C308722EAE9840065B1F8 /* NSString+ZHString.m */; };
 		F960D2BF22E6E8D400A641A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F960D2BE22E6E8D400A641A9 /* AppDelegate.m */; };
 		F960D2C222E6E8D400A641A9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F960D2C122E6E8D400A641A9 /* ViewController.m */; };
 		F960D2C522E6E8D400A641A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F960D2C322E6E8D400A641A9 /* Main.storyboard */; };
@@ -18,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F92C308322EAE29B0065B1F8 /* NSURL+ChineseJudge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURL+ChineseJudge.h"; sourceTree = "<group>"; };
+		F92C308422EAE29B0065B1F8 /* NSURL+ChineseJudge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURL+ChineseJudge.m"; sourceTree = "<group>"; };
+		F92C308622EAE9840065B1F8 /* NSString+ZHString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+ZHString.h"; sourceTree = "<group>"; };
+		F92C308722EAE9840065B1F8 /* NSString+ZHString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZHString.m"; sourceTree = "<group>"; };
 		F960D2BA22E6E8D400A641A9 /* RuntimeExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RuntimeExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F960D2BD22E6E8D400A641A9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F960D2BE22E6E8D400A641A9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -72,6 +78,10 @@
 				F960D2DD22E70EDD00A641A9 /* UIViewController+VCAppearExchange.m */,
 				F960D2D622E6E9C800A641A9 /* UITextField+UITextField_Delete.h */,
 				F960D2D722E6E9C800A641A9 /* UITextField+UITextField_Delete.m */,
+				F92C308322EAE29B0065B1F8 /* NSURL+ChineseJudge.h */,
+				F92C308422EAE29B0065B1F8 /* NSURL+ChineseJudge.m */,
+				F92C308622EAE9840065B1F8 /* NSString+ZHString.h */,
+				F92C308722EAE9840065B1F8 /* NSString+ZHString.m */,
 				F960D2C322E6E8D400A641A9 /* Main.storyboard */,
 				F960D2C622E6E8D600A641A9 /* Assets.xcassets */,
 				F960D2C822E6E8D600A641A9 /* LaunchScreen.storyboard */,
@@ -151,9 +161,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F92C308522EAE29B0065B1F8 /* NSURL+ChineseJudge.m in Sources */,
 				F960D2D822E6E9C800A641A9 /* UITextField+UITextField_Delete.m in Sources */,
 				F960D2C222E6E8D400A641A9 /* ViewController.m in Sources */,
 				F960D2DE22E70EDD00A641A9 /* UIViewController+VCAppearExchange.m in Sources */,
+				F92C308822EAE9840065B1F8 /* NSString+ZHString.m in Sources */,
 				F960D2CD22E6E8D600A641A9 /* main.m in Sources */,
 				F960D2BF22E6E8D400A641A9 /* AppDelegate.m in Sources */,
 			);
